@@ -16,3 +16,23 @@ let count = 0;
 
 // Задание 4. Для учебного наблюдения подключите keypress и console.log(event.key).
 // Помните: keypress устарел и не подходит для нового функционала.
+// Получаем поле ввода
+const inputElement = document.getElementById('keyboard-input');
+inputElement.addEventListener('keydown', function(event) {
+  if (event.key === 'Enter') {
+    const outputElement = document.getElementById('last-key');
+    outputElement.textContent = inputElement.value;
+  }
+});
+const inputElement2 = document.getElementById('keyboard-input');
+inputElement.addEventListener('keydown', function(event) {
+  if (event.key === 'Enter') {
+    const outputElement = document.getElementById('key-state');
+    outputElement.textContent = ('клавиша нажата')
+  }
+});
+let number = 0; 
+document.getElementById('increment').addEventListener('click', function() {
+  number++;
+  document.getElementById('result').textContent = number;
+});
