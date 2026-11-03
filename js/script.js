@@ -7,12 +7,22 @@ const keyState = document.querySelector("#key-state");
 const keyCount = document.querySelector("#key-count");
 let count = 0;
 
-// Задание 1. Подключите событие keydown к input.
-// Покажите event.key и event.code. Обновите состояние на «Клавиша нажата».
+// Задание 1 и Задание 2
+input.addEventListener('keydown', function(event) {
+  lastKey.textContent = event.key;
+  keyCode.textContent = event.code;
+  keyState.textContent = 'Клавиша нажата';
 
-// Задание 2. В том же обработчике увеличивайте счётчик только когда !event.repeat.
+  if (!event.repeat) {
+    count++;
+    keyCount.textContent = count;
+  }
+});
 
-// Задание 3. Подключите keyup. Выведите «Клавиша отпущена».
+input.addEventListener('keyup', function(event) {
+  keyState.textContent = 'Клавиша отпущена';
+});
 
-// Задание 4. Для учебного наблюдения подключите keypress и console.log(event.key).
-// Помните: keypress устарел и не подходит для нового функционала.
+input.addEventListener('keypress', function(event) {
+  console.log(event.key);
+});
